@@ -7,3 +7,13 @@ before_install:
 
 script:
   - docker run jakasse/docker-react npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-west-1"
+  app: "Jak-Docker-react"
+  env: "JakDockerReact-env"
+  bucket_name: "elasticbeanstalk-eu-west-1-982908300187"
+  bucket_path: "Jak-Docker-react"
+  on:
+    branch: master
